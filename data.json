@@ -1,0 +1,256 @@
+[
+  {
+    "category": "Drinks",
+    "name": "Strawberry Mojito",
+    "image": "/images/drinks/strawberry-maxitto.png",
+    "prices": [
+      {
+        "size": "0.5L",
+        "price": 7000
+      },
+      {
+        "size": "1L",
+        "price": 14000
+      }
+    ]
+  },
+  {
+    "category": "Drinks",
+    "name": "Mango Mojito",
+    "image": "/images/drinks/mango-maxitto.png",
+    "prices": [
+      {
+        "size": "0.5L",
+        "price": 7000
+      },
+      {
+        "size": "1L",
+        "price": 14000
+      }
+    ]
+  },
+  {
+    "category": "Drinks",
+    "name": "Pepsi",
+    "image": "/images/drinks/pepsi.png",
+    "prices": [
+      {
+        "size": "0.5L",
+        "price": 7000
+      },
+      {
+        "size": "1L",
+        "price": 14000
+      }
+    ]
+  },
+  {
+    "category": "Drinks",
+    "name": "Fanta",
+    "image": "/images/drinks/fanta.png",
+    "prices": [
+      {
+        "size": "0.5L",
+        "price": 8000
+      },
+      {
+        "size": "1L",
+        "price": 15000
+      }
+    ]
+  },
+  {
+    "category": "Drinks",
+    "name": "Coca Cola",
+    "image": "/images/drinks/cola.png",
+    "prices": [
+      {
+        "size": "0.5L",
+        "price": 7500
+      },
+      {
+        "size": "1L",
+        "price": 14500
+      },
+      {
+        "size": "1.5L",
+        "price": 17500
+      },
+      {
+        "size": "2L",
+        "price": 20000
+      }
+    ]
+  },
+  {
+    "category": "Drinks",
+    "name": "Banana milkshake",
+    "image": "/images/drinks/coctel-banan.png",
+    "prices": [
+      {
+        "size": "0.5L",
+        "price": 7500
+      },
+      {
+        "size": "1L",
+        "price": 14500
+      },
+      {
+        "size": "1.5L",
+        "price": 17500
+      },
+      {
+        "size": "2L",
+        "price": 20000
+      }
+    ]
+  },
+  {
+    "category": "Drinks",
+    "name": "Moxitto",
+    "image": "/images/drinks/moxitto.png",
+    "prices": [
+      {
+        "size": "0.5L",
+        "price": 7500
+      },
+      {
+        "size": "1L",
+        "price": 14500
+      },
+      {
+        "size": "1.5L",
+        "price": 17500
+      },
+      {
+        "size": "2L",
+        "price": 20000
+      }
+    ]
+  },
+  {
+    "category": "Drinks",
+    "name": "Sprite",
+    "image": "/images/drinks/sprite.png",
+    "prices": [
+      {
+        "size": "0.5L",
+        "price": 7500
+      },
+      {
+        "size": "1L",
+        "price": 14500
+      },
+      {
+        "size": "1.5L",
+        "price": 17500
+      },
+      {
+        "size": "2L",
+        "price": 20000
+      }
+    ]
+  },
+  {
+    "category": "Sweets",
+    "name": "Cheesecake Strawberry",
+    "image": "/images/sweets/cheesecake-strawberry.png",
+    "prices": [
+      {
+        "size": "slice",
+        "price": 12000
+      },
+      {
+        "size": "whole",
+        "price": 70000
+      }
+    ]
+  },
+  {
+    "category": "Sweets",
+    "name": "Waffle",
+    "image": "/images/sweets/vafli.png",
+    "prices": [
+      {
+        "size": "1 pcs",
+        "price": 5000
+      }
+    ]
+  },
+  {
+    "category": "Sweets",
+    "name": "Dubai",
+    "image": "/images/sweets/dubai.png",
+    "prices": [
+      {
+        "size": "single",
+        "price": 10000
+      },
+      {
+        "size": "double",
+        "price": 18000
+      }
+    ]
+  },
+  {
+    "category": "Sweets",
+    "name": "Lotus",
+    "image": "/images/sweets/lotus.png",
+    "prices": [
+      {
+        "size": "single",
+        "price": 10000
+      },
+      {
+        "size": "double",
+        "price": 18000
+      }
+    ]
+  },
+  {
+    "category": "Sweets",
+    "name": "Pistachio",
+    "image": "/images/sweets/pistachio.png",
+    "prices": [
+      {
+        "size": "single",
+        "price": 10000
+      },
+      {
+        "size": "double",
+        "price": 18000
+      }
+    ]
+  },
+  {
+    "category": "Sweets",
+    "name": "San Sebastian",
+    "image": "/images/sweets/sanSebastian.png",
+    "prices": [
+      {
+        "size": "single",
+        "price": 10000
+      },
+      {
+        "size": "double",
+        "price": 18000
+      }
+    ]
+  },
+
+  {
+    "category": "Pizzas",
+    "name": "San Sebastian",
+    "image": "/images/sweets/sanSebastian.png",
+    "prices": [
+      {
+        "size": "single",
+        "price": 10000
+      },
+      {
+        "size": "double",
+        "price": 18000
+      }
+    ]
+  }
+]
