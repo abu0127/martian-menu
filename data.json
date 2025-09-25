@@ -2,7 +2,7 @@
   {
     "category": "Drinks",
     "name": "Strawberry Mojito",
-    "image": "/images/drinks/strawberry-maxitto.png",
+    "image": "images/drinks/strawberry-maxitto.png",
     "prices": [
       {
         "size": "0.5L",
@@ -17,7 +17,7 @@
   {
     "category": "Drinks",
     "name": "Mango Mojito",
-    "image": "/images/drinks/mango-maxitto.png",
+    "image": "images/drinks/mango-maxitto.png",
     "prices": [
       {
         "size": "0.5L",
@@ -32,7 +32,7 @@
   {
     "category": "Drinks",
     "name": "Pepsi",
-    "image": "/images/drinks/pepsi.png",
+    "image": "images/drinks/pepsi.png",
     "prices": [
       {
         "size": "0.5L",
