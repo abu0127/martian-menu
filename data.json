@@ -2,7 +2,7 @@
   {
     "category": "Drinks",
     "name": "Strawberry Mojito",
-    "image": "images/drinks/strawberry-maxitto.png",
+    "image": "martian-menu/images/drinks/strawberry-maxitto.png",
     "prices": [
       {
         "size": "0.5L",
