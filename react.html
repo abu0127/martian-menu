@@ -299,7 +299,7 @@
             color: #111;
         }
 
-        /* Skeleton Styles */
+        /* Skeleton Loader Styles */
         .skeleton {
             background: linear-gradient(90deg, #f0f0f0 25%, #e0e0e0 50%, #f0f0f0 75%);
             background-size: 200% 100%;
@@ -319,10 +319,24 @@
             margin-bottom: 10px;
         }
 
-        .skeleton-carusel {
+        .skeleton-carousel {
             height: 150px;
             flex: 0 0 75%;
             border-radius: 20px;
+        }
+
+        .skeleton-carousel.active {
+            height: 170px;
+            flex: 0 0 80%;
+        }
+
+        /* Skeleton Grid for cards */
+        .skeleton-grid {
+            padding: 10px 3%;
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 10px;
+            margin-top: 20px;
         }
 
         /* Not Found Message */
@@ -441,12 +455,23 @@
             return path;
         }
 
-        // Check if image exists
-        function checkImageExists(url, callback) {
-            const img = new Image();
-            img.onload = function() { callback(true); };
-            img.onerror = function() { callback(false); };
-            img.src = url;
+        // Render skeleton loader
+        function renderSkeleton() {
+            // Skeleton for carousel
+            carousel.innerHTML = '';
+            for (let i = 0; i < 4; i++) {
+                const skeletonItem = document.createElement('div');
+                skeletonItem.className = `skeleton skeleton-carousel ${i === 0 ? 'active' : ''}`;
+                carousel.appendChild(skeletonItem);
+            }
+            
+            // Skeleton for cards grid
+            cardsGrid.innerHTML = '';
+            for (let i = 0; i < 6; i++) {
+                const skeletonCard = document.createElement('div');
+                skeletonCard.className = 'skeleton skeleton-card';
+                cardsGrid.appendChild(skeletonCard);
+            }
         }
 
         // Load data from data.json
@@ -454,6 +479,12 @@
             try {
                 isLoading = true;
                 errorMessage = "";
+                
+                // Render skeleton first
+                renderSkeleton();
+                
+                // Simulate loading delay for better UX
+                await new Promise(resolve => setTimeout(resolve, 1500));
                 
                 // GitHub Pages uchun data.json yo'lini to'g'rilaymiz
                 let dataUrl = './data.json';
@@ -494,9 +525,6 @@
         function init() {
             // Set up event listeners
             setupEventListeners();
-            
-            // Render initial skeleton
-            renderSkeleton();
             
             // Load data
             loadData();
@@ -544,25 +572,6 @@
                 header.classList.add('hide');
             } else if (currentScroll < showThreshold) {
                 header.classList.remove('hide');
-            }
-        }
-
-        // Render skeleton while loading
-        function renderSkeleton() {
-            // Skeleton for carousel
-            carousel.innerHTML = '';
-            for (let i = 0; i < 3; i++) {
-                const skeletonItem = document.createElement('div');
-                skeletonItem.className = 'skeleton skeleton-carusel';
-                carousel.appendChild(skeletonItem);
-            }
-            
-            // Skeleton for cards
-            cardsGrid.innerHTML = '';
-            for (let i = 0; i < 4; i++) {
-                const skeletonCard = document.createElement('div');
-                skeletonCard.className = 'skeleton skeleton-card';
-                cardsGrid.appendChild(skeletonCard);
             }
         }
 
@@ -664,7 +673,13 @@
 
         // Render cards
         function renderCards() {
-            if (isLoading || errorMessage) return;
+            if (isLoading || errorMessage) {
+                // Agar hali yuklanayotgan bo'lsa, skeleton ko'rsatamiz
+                if (isLoading) {
+                    renderSkeleton();
+                }
+                return;
+            }
             
             cardsGrid.innerHTML = '';
             
