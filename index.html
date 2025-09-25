@@ -1,9 +1,10 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Food Menu</title>
+    <title>Martian Menu</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         * {
@@ -107,6 +108,10 @@
             margin: 0 auto;
         }
 
+        .carousel::-webkit-scrollbar {
+            display: none;
+        }
+
         .carousel-item {
             height: 150px;
             flex: 0 0 75%;
@@ -176,8 +181,15 @@
         }
 
         @keyframes card-anim {
-            from { transform: scale(0.95); opacity: 0; }
-            to { transform: scale(1); opacity: 1; }
+            from {
+                transform: scale(0.95);
+                opacity: 0;
+            }
+
+            to {
+                transform: scale(1);
+                opacity: 1;
+            }
         }
 
         .card img {
@@ -231,8 +243,13 @@
         }
 
         @keyframes modalSlideUp {
-            from { transform: translateY(100%); }
-            to { transform: translateY(0); }
+            from {
+                transform: translateY(100%);
+            }
+
+            to {
+                transform: translateY(0);
+            }
         }
 
         .modal-close {
@@ -299,7 +316,7 @@
             color: #111;
         }
 
-        /* Skeleton Loader Styles */
+        /* Skeleton Styles */
         .skeleton {
             background: linear-gradient(90deg, #f0f0f0 25%, #e0e0e0 50%, #f0f0f0 75%);
             background-size: 200% 100%;
@@ -308,8 +325,13 @@
         }
 
         @keyframes loading {
-            0% { background-position: 200% 0; }
-            100% { background-position: -200% 0; }
+            0% {
+                background-position: 200% 0;
+            }
+
+            100% {
+                background-position: -200% 0;
+            }
         }
 
         .skeleton-card {
@@ -319,24 +341,10 @@
             margin-bottom: 10px;
         }
 
-        .skeleton-carousel {
+        .skeleton-carusel {
             height: 150px;
             flex: 0 0 75%;
             border-radius: 20px;
-        }
-
-        .skeleton-carousel.active {
-            height: 170px;
-            flex: 0 0 80%;
-        }
-
-        /* Skeleton Grid for cards */
-        .skeleton-grid {
-            padding: 10px 3%;
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 10px;
-            margin-top: 20px;
         }
 
         /* Not Found Message */
@@ -358,20 +366,9 @@
             margin-top: 20px;
             padding: 20px;
         }
-
-        /* Placeholder for missing images */
-        .image-placeholder {
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(45deg, #f0f0f0, #e0e0e0);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: #999;
-            font-size: 16px;
-        }
     </style>
 </head>
+
 <body>
     <header id="header">
         <span>logo</span>
@@ -400,12 +397,12 @@
     </div>
 
     <script>
-        // Category images - GitHub Pages uchun nisbiy yo'llar
+        // Category images
         const categoryImages = {
-            Drinks: './images/drinks/cola.png',
-            Sweets: './images/sweets.png',
-            Pizzas: './images/pizzas/margherita.png',
-            burgers: './images/burgers/classic.png',
+            Drinks: '/images/drinks/cola.png',
+            Sweets: '/images/sweets.png',
+            Pizzas: '/images/pizzas/margherita.png',
+            burgers: '/images/burgers/classic.png',
         };
 
         // Extract categories from data
@@ -432,83 +429,21 @@
         const searchButton = document.querySelector('.search-button');
         const searchInput = document.querySelector('.search-input');
 
-        // Fix image paths for GitHub Pages
-        function fixImagePath(path) {
-            if (!path) return './images/placeholder.png';
-            
-            // Agar path allaqachon to'liq URL bo'lsa
-            if (path.startsWith('http') || path.startsWith('//')) {
-                return path;
-            }
-            
-            // Agar path root-dan boshlanmasa, nisbiy yo'l qo'shamiz
-            if (!path.startsWith('/')) {
-                return './' + path;
-            }
-            
-            // Agar path root-dan boshlansa, GitHub Pages uchun repository nomini qo'shamiz
-            const repoName = window.location.pathname.split('/')[1] || '';
-            if (repoName && !path.startsWith(`/${repoName}`)) {
-                return `/${repoName}${path}`;
-            }
-            
-            return path;
-        }
-
-        // Render skeleton loader
-        function renderSkeleton() {
-            // Skeleton for carousel
-            carousel.innerHTML = '';
-            for (let i = 0; i < 4; i++) {
-                const skeletonItem = document.createElement('div');
-                skeletonItem.className = `skeleton skeleton-carousel ${i === 0 ? 'active' : ''}`;
-                carousel.appendChild(skeletonItem);
-            }
-            
-            // Skeleton for cards grid
-            cardsGrid.innerHTML = '';
-            for (let i = 0; i < 6; i++) {
-                const skeletonCard = document.createElement('div');
-                skeletonCard.className = 'skeleton skeleton-card';
-                cardsGrid.appendChild(skeletonCard);
-            }
-        }
-
         // Load data from data.json
         async function loadData() {
             try {
                 isLoading = true;
                 errorMessage = "";
-                
-                // Render skeleton first
-                renderSkeleton();
-                
-                // Simulate loading delay for better UX
-                await new Promise(resolve => setTimeout(resolve, 1500));
-                
-                // GitHub Pages uchun data.json yo'lini to'g'rilaymiz
-                let dataUrl = './data.json';
-                
-                // Agar GitHub Pages-da bo'lsak, repository nomini qo'shamiz
-                if (window.location.hostname === 'github.io') {
-                    const repoName = window.location.pathname.split('/')[1];
-                    if (repoName) {
-                        dataUrl = `/${repoName}/data.json`;
-                    }
-                }
-                
-                const response = await fetch(dataUrl);
+
+                // Simulate loading delay
+                await new Promise(resolve => setTimeout(resolve, 2000));
+
+                const response = await fetch('data.json');
                 if (!response.ok) {
                     throw new Error(`HTTP error! status: ${response.status}`);
                 }
                 apiData = await response.json();
-                
-                // Rasmlarning yo'llarini to'g'rilaymiz
-                apiData = apiData.map(item => ({
-                    ...item,
-                    image: fixImagePath(item.image)
-                }));
-                
+
                 // Render the app with the loaded data
                 renderCarousel();
                 renderCards();
@@ -525,7 +460,10 @@
         function init() {
             // Set up event listeners
             setupEventListeners();
-            
+
+            // Render initial skeleton
+            renderSkeleton();
+
             // Load data
             loadData();
         }
@@ -535,13 +473,13 @@
             // Search functionality
             searchButton.addEventListener('click', toggleSearch);
             searchInput.addEventListener('input', handleSearch);
-            
+
             // Scroll handling for header
             container.addEventListener('scroll', handleScroll);
-            
+
             // Modal close
             modalOverlay.addEventListener('click', closeModal);
-            
+
             // Prevent modal content click from closing modal
             modalContent.addEventListener('click', (e) => {
                 e.stopPropagation();
@@ -567,7 +505,7 @@
             const currentScroll = container.scrollTop;
             const hideThreshold = 180;
             const showThreshold = 10;
-            
+
             if (currentScroll > hideThreshold) {
                 header.classList.add('hide');
             } else if (currentScroll < showThreshold) {
@@ -575,11 +513,30 @@
             }
         }
 
+        // Render skeleton while loading
+        function renderSkeleton() {
+            // Skeleton for carousel
+            carousel.innerHTML = '';
+            for (let i = 0; i < 3; i++) {
+                const skeletonItem = document.createElement('div');
+                skeletonItem.className = 'skeleton skeleton-carusel';
+                carousel.appendChild(skeletonItem);
+            }
+
+            // Skeleton for cards
+            cardsGrid.innerHTML = '';
+            for (let i = 0; i < 4; i++) {
+                const skeletonCard = document.createElement('div');
+                skeletonCard.className = 'skeleton skeleton-card';
+                cardsGrid.appendChild(skeletonCard);
+            }
+        }
+
         // Render error message
         function renderError() {
             carousel.innerHTML = '';
             cardsGrid.innerHTML = '';
-            
+
             const errorElement = document.createElement('div');
             errorElement.className = 'error';
             errorElement.textContent = errorMessage;
@@ -589,45 +546,35 @@
         // Render carousel
         function renderCarousel() {
             if (errorMessage) return;
-            
+
             carousel.innerHTML = '';
-            
+
             const categories = getCategoriesFromData(apiData);
-            
+
             categories.forEach((category, index) => {
                 const carouselItem = document.createElement('div');
                 carouselItem.className = `carousel-item ${activeCategory === category ? 'active' : ''}`;
                 carouselItem.id = index;
-                
+
                 const image = document.createElement('img');
                 // Use category image if available, otherwise use a placeholder
-                const imagePath = categoryImages[category] || './images/placeholder.png';
-                image.src = fixImagePath(imagePath);
+                image.src = categoryImages[category] || '/images/placeholder.png';
                 image.alt = category;
-                
-                // Add error handling for category images
-                image.onerror = function() {
-                    this.style.display = 'none';
-                    const placeholder = document.createElement('div');
-                    placeholder.className = 'image-placeholder';
-                    placeholder.textContent = category;
-                    carouselItem.appendChild(placeholder);
-                };
-                
+
                 const title = document.createElement('div');
                 title.className = 'carousel-title';
                 title.textContent = category;
-                
+
                 carouselItem.appendChild(image);
                 carouselItem.appendChild(title);
                 carousel.appendChild(carouselItem);
-                
+
                 // Add click event to change category
                 carouselItem.addEventListener('click', () => {
                     setActiveCategory(category);
                 });
             });
-            
+
             // Set up intersection observer for carousel
             setupCarouselObserver();
         }
@@ -646,7 +593,7 @@
                 root: carousel,
                 threshold: 0.6
             });
-            
+
             const items = carousel.querySelectorAll('.carousel-item');
             items.forEach(item => observer.observe(item));
         }
@@ -654,11 +601,11 @@
         // Set active category
         function setActiveCategory(category) {
             activeCategory = category;
-            
+
             // Update carousel items
             const carouselItems = carousel.querySelectorAll('.carousel-item');
             const categories = getCategoriesFromData(apiData);
-            
+
             carouselItems.forEach((item, index) => {
                 if (categories[index] === category) {
                     item.classList.add('active');
@@ -666,28 +613,22 @@
                     item.classList.remove('active');
                 }
             });
-            
+
             // Update cards
             renderCards();
         }
 
         // Render cards
         function renderCards() {
-            if (isLoading || errorMessage) {
-                // Agar hali yuklanayotgan bo'lsa, skeleton ko'rsatamiz
-                if (isLoading) {
-                    renderSkeleton();
-                }
-                return;
-            }
-            
+            if (isLoading || errorMessage) return;
+
             cardsGrid.innerHTML = '';
-            
-            const filteredItems = apiData.filter(item => 
-                item.category === activeCategory && 
+
+            const filteredItems = apiData.filter(item =>
+                item.category === activeCategory &&
                 item.name.toLowerCase().includes(searchQuery)
             );
-            
+
             if (filteredItems.length === 0) {
                 const notFound = document.createElement('div');
                 notFound.className = 'not-found';
@@ -695,32 +636,23 @@
                 cardsGrid.appendChild(notFound);
                 return;
             }
-            
+
             filteredItems.forEach(item => {
                 const card = document.createElement('div');
                 card.className = 'card';
-                
+
                 const image = document.createElement('img');
                 image.src = item.image;
                 image.alt = item.name;
-                
-                // Add error handling for product images
-                image.onerror = function() {
-                    this.style.display = 'none';
-                    const placeholder = document.createElement('div');
-                    placeholder.className = 'image-placeholder';
-                    placeholder.textContent = item.name;
-                    card.appendChild(placeholder);
-                };
-                
+
                 const title = document.createElement('div');
                 title.className = 'card-title';
                 title.textContent = item.name;
-                
+
                 card.appendChild(image);
                 card.appendChild(title);
                 cardsGrid.appendChild(card);
-                
+
                 // Add click event to open modal
                 card.addEventListener('click', () => {
                     openModal(item);
@@ -731,12 +663,12 @@
         // Open modal with item details
         function openModal(item) {
             selectedItem = item;
-            
+
             modalContent.innerHTML = `
                 <button class="modal-close">
                     <i class="fas fa-times"></i>
                 </button>
-                <img src="${item.image}" alt="${item.name}" class="modal-image" onerror="this.style.display='none';">
+                <img src="${item.image}" alt="${item.name}" class="modal-image">
                 <h2 class="modal-name">${item.name}</h2>
                 <table class="modal-table">
                     <thead>
@@ -755,11 +687,11 @@
                     </tbody>
                 </table>
             `;
-            
+
             // Add event listener to close button
             const closeButton = modalContent.querySelector('.modal-close');
             closeButton.addEventListener('click', closeModal);
-            
+
             modalOverlay.classList.add('active');
         }
 
@@ -773,4 +705,5 @@
         document.addEventListener('DOMContentLoaded', init);
     </script>
 </body>
+
 </html>

@@ -236,21 +236,5 @@
         "price": 18000
       }
     ]
-  },
-
-  {
-    "category": "Pizzas",
-    "name": "San Sebastian",
-    "image": "/images/sweets/sanSebastian.png",
-    "prices": [
-      {
-        "size": "single",
-        "price": 10000
-      },
-      {
-        "size": "double",
-        "price": 18000
-      }
-    ]
   }
 ]
