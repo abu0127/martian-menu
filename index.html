@@ -468,6 +468,17 @@
             loadData();
         }
 
+
+        // Path fixer (GitHub Pages uchun)
+function fixPath(path) {
+    // Agar to‘liq URL bo‘lsa (https:// bilan boshlansa) — o‘zini qaytaradi
+    if (path.startsWith("http")) return path;
+    // Aks holda /martian-menu/ bilan birga qaytaradi
+    const base = window.location.pathname.includes("martian-menu") ? "/martian-menu/" : "/";
+    return base + path;
+}
+
+
         // Set up event listeners
         function setupEventListeners() {
             // Search functionality
@@ -632,7 +643,7 @@
             if (filteredItems.length === 0) {
                 const notFound = document.createElement('div');
                 notFound.className = 'not-found';
-                notFound.textContent = 'Topilmadi';
+                notFound.textContent = ' Topilmadi';
                 cardsGrid.appendChild(notFound);
                 return;
             }
@@ -642,7 +653,7 @@
                 card.className = 'card';
 
                 const image = document.createElement('img');
-                image.src = item.image;
+                image.src = fixPath(item.image);
                 image.alt = item.name;
 
                 const title = document.createElement('div');
@@ -668,7 +679,7 @@
                 <button class="modal-close">
                     <i class="fas fa-times"></i>
                 </button>
-                <img src="${item.image}" alt="${item.name}" class="modal-image">
+                <img src="${fixPath(item.image)}" alt="${item.name}" class="modal-image">
                 <h2 class="modal-name">${item.name}</h2>
                 <table class="modal-table">
                     <thead>

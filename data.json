@@ -2,7 +2,7 @@
   {
     "category": "Drinks",
     "name": "Strawberry Mojito",
-    "image":"https://github.com/abu0127/martian-menu/blob/master/images/drinks/strawberry-maxitto.PNG",
+    "image": "images/drinks/strawberry-maxitto.png",
     "prices": [
       {
         "size": "0.5L",
@@ -47,7 +47,7 @@
   {
     "category": "Drinks",
     "name": "Fanta",
-    "image": "/images/drinks/fanta.png",
+    "image": "images/drinks/fanta.png",
     "prices": [
       {
         "size": "0.5L",
@@ -62,7 +62,7 @@
   {
     "category": "Drinks",
     "name": "Coca Cola",
-    "image": "/images/drinks/cola.png",
+    "image": "images/drinks/cola.png",
     "prices": [
       {
         "size": "0.5L",
@@ -85,7 +85,7 @@
   {
     "category": "Drinks",
     "name": "Banana milkshake",
-    "image": "/images/drinks/coctel-banan.png",
+    "image": "images/drinks/coctel-banan.png",
     "prices": [
       {
         "size": "0.5L",
@@ -108,7 +108,7 @@
   {
     "category": "Drinks",
     "name": "Moxitto",
-    "image": "/images/drinks/moxitto.png",
+    "image": "images/drinks/moxitto.png",
     "prices": [
       {
         "size": "0.5L",
@@ -131,7 +131,7 @@
   {
     "category": "Drinks",
     "name": "Sprite",
-    "image": "/images/drinks/sprite.png",
+    "image": "images/drinks/sprite.png",
     "prices": [
       {
         "size": "0.5L",
@@ -154,7 +154,7 @@
   {
     "category": "Sweets",
     "name": "Cheesecake Strawberry",
-    "image": "/images/sweets/cheesecake-strawberry.png",
+    "image": "images/sweets/cheesecake-strawberry.png",
     "prices": [
       {
         "size": "slice",
@@ -169,7 +169,7 @@
   {
     "category": "Sweets",
     "name": "Waffle",
-    "image": "/images/sweets/vafli.png",
+    "image": "images/sweets/vafli.png",
     "prices": [
       {
         "size": "1 pcs",
@@ -180,7 +180,7 @@
   {
     "category": "Sweets",
     "name": "Dubai",
-    "image": "/images/sweets/dubai.png",
+    "image": "images/sweets/dubai.png",
     "prices": [
       {
         "size": "single",
@@ -195,7 +195,7 @@
   {
     "category": "Sweets",
     "name": "Lotus",
-    "image": "/images/sweets/lotus.png",
+    "image": "images/sweets/lotus.png",
     "prices": [
       {
         "size": "single",
@@ -210,7 +210,7 @@
   {
     "category": "Sweets",
     "name": "Pistachio",
-    "image": "/images/sweets/pistachio.png",
+    "image": "images/sweets/pistachio.png",
     "prices": [
       {
         "size": "single",
@@ -225,7 +225,7 @@
   {
     "category": "Sweets",
     "name": "San Sebastian",
-    "image": "/images/sweets/sanSebastian.png",
+    "image": "images/sweets/sanSebastian.png",
     "prices": [
       {
         "size": "single",
