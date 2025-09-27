@@ -177,21 +177,29 @@
             cursor: pointer;
             position: relative;
             font-weight: 900;
-            animation: card-anim 0.3s ease;
+           opacity: 0;
+            transform: translateY(40px);
+            filter: brightness(40%);
+            animation: card-anim 0.6s ease forwards;
+            /* transform: scale(0.75); */
         }
 
         @keyframes card-anim {
-            from {
-                transform: scale(0.95);
-                opacity: 0;
-            }
+          
 
             to {
-                transform: scale(1);
+                transform: translate(0);
                 opacity: 1;
+                filter: brightness(100%);
             }
         }
 
+        #cardsGrid .card:nth-child(1){animation-delay: 0.1s ;}
+        #cardsGrid .card:nth-child(2){animation-delay: 0.2s ;}
+        #cardsGrid .card:nth-child(3){animation-delay: 0.3s ;}
+        #cardsGrid .card:nth-child(4){animation-delay: 0.4s ;}
+          #cardsGrid .card:nth-child(5){animation-delay: 0.5s ;}
+  #cardsGrid .card:nth-child(6){animation-delay: 0.6s ;}
         .card img {
             width: 100%;
             height: 100%;
@@ -399,9 +407,9 @@
     <script>
         // Category images
         const categoryImages = {
-            Drinks: 'images/drinks/cola.png',
-            Sweets: 'images/sweets.png',
-            Pizzas: 'images/pizzas/margherita.png',
+            Drinks: 'images/drinks/cola.PNG',
+            Sweets: 'images/sweets.PNG',
+            Pizzas: 'images/pizzas/margherita.PNG',
             burgers: 'images/burgers/classic.png',
         };
 
