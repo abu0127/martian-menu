@@ -5,12 +5,12 @@
     "image": "images/drinks/strawberry-maxitto.PNG",
     "prices": [
       {
-        "size": "0.5L",
-        "price": 7000
+        "size": "0.7L",
+        "price": 27000
       },
       {
         "size": "1L",
-        "price": 14000
+        "price": 37000
       }
     ]
   },
@@ -20,12 +20,12 @@
     "image": "images/drinks/mango-maxitto.PNG",
     "prices": [
       {
-        "size": "0.5L",
-        "price": 7000
+        "size": "0.7L",
+        "price": 27000
       },
       {
         "size": "1L",
-        "price": 14000
+        "price": 37000
       }
     ]
   },
@@ -89,19 +89,7 @@
     "prices": [
       {
         "size": "0.5L",
-        "price": 7500
-      },
-      {
-        "size": "1L",
-        "price": 14500
-      },
-      {
-        "size": "1.5L",
-        "price": 17500
-      },
-      {
-        "size": "2L",
-        "price": 20000
+        "price": 25000
       }
     ]
   },
@@ -158,11 +146,11 @@
     "prices": [
       {
         "size": "slice",
-        "price": 12000
+        "price": 35000
       },
       {
-        "size": "whole",
-        "price": 70000
+        "size": "12 slice",
+        "price": 420000
       }
     ]
   },
@@ -172,8 +160,16 @@
     "image": "images/sweets/vafli.PNG",
     "prices": [
       {
-        "size": "1 pcs",
-        "price": 5000
+        "size": "Waffle Choco",
+        "price": 50000
+      },
+      {
+        "size": "Waffle fruites",
+        "price": 55000
+      },
+      {
+        "size": "Waffle iscrem",
+        "price": 65000
       }
     ]
   },
@@ -184,11 +180,11 @@
     "prices": [
       {
         "size": "single",
-        "price": 10000
+        "price": 35000
       },
       {
-        "size": "double",
-        "price": 18000
+        "size": "12 slice",
+        "price": 420000
       }
     ]
   },
@@ -199,11 +195,11 @@
     "prices": [
       {
         "size": "single",
-        "price": 10000
+        "price": 35000
       },
       {
-        "size": "double",
-        "price": 18000
+        "size": "12 slice",
+        "price": 420000
       }
     ]
   },
@@ -227,13 +223,13 @@
     "name": "San Sebastian",
     "image": "images/sweets/sansebastian.PNG",
     "prices": [
-      {
+       {
         "size": "single",
-        "price": 10000
+        "price": 35000
       },
       {
-        "size": "double",
-        "price": 18000
+        "size": "12 slice",
+        "price": 420000
       }
     ]
   }
