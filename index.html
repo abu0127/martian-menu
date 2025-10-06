@@ -49,11 +49,14 @@
             box-shadow: 0 0 5px 1px rgba(0, 0, 0, 0.24);
             max-width: 540px;
             margin: 0 auto;
+            overflow: hidden ;
         }
 
         header.hide {
             transform: translateY(-100%);
         }
+
+
 
         /* Search Bar Styles */
         .search-container {
@@ -74,10 +77,19 @@
             border-radius: 50%;
         }
 
-        .logo{
+        .logo {
+            position: relative;
             width: 150px;
             height: 25px;
             border-radius: 20px;
+            
+        }
+
+        .logo img {
+            top: -35px;
+            left: 0;
+            position: absolute;
+            width: 100px;
         }
 
 
@@ -280,15 +292,15 @@
             height: 100vh;
             font-family: system-ui, sans-serif;
             animation: modalSlideUp 2s ease;
-           
+
         }
 
-       
+
 
         @keyframes modalSlideUp {
             from {
                 transform: translateY(100%);
-                 opacity: 0;
+                opacity: 0;
             }
 
             to {
@@ -324,7 +336,7 @@
             border-radius: 45px;
             object-fit: cover;
             transform: translateY(40%);
-            animation:  modalAnim .3s forwards;
+            animation: modalAnim .3s forwards;
             opacity: 0;
         }
 
@@ -334,7 +346,7 @@
             font-size: 1.6rem;
             font-weight: 900;
             color: #222;
-          
+
         }
 
         .modal-table {
@@ -343,7 +355,7 @@
             margin-bottom: 10px;
             font-size: 1rem;
             margin: 10px auto;
-           
+
         }
 
         .modal-table th {
@@ -351,7 +363,7 @@
             text-align: left;
             font-weight: 500;
             color: #666;
-           
+
         }
 
         .modal-table th:last-child {
@@ -372,21 +384,21 @@
 
         /* modal anim */
         @keyframes modalAnim {
-           
+
             to {
                 transform: translateY(0);
                 opacity: 1;
             }
         }
 
-        
+
 
         /* Skeleton Styles */
         .skeleton {
             background: linear-gradient(90deg, #f0f0f0e3 25%, #e0e0e0 50%, #f0f0f0 75%);
             background-size: 200% 100%;
             animation: loading 1.5s infinite;
-            
+
         }
 
         @keyframes loading {
@@ -436,7 +448,9 @@
 
 <body>
     <header id="header">
-        <span class=" logo skeleton">logo</span>
+        <span class=" logo skeleton">
+            <img src="images/logo.jpg" alt="">
+        </span>
         <div class="search-container">
             <button class="search-button skeleton ">
                 <i class="fa-solid fa-magnifying-glass"></i>
@@ -494,13 +508,23 @@
         const searchButton = document.querySelector('.search-button');
         const searchInput = document.querySelector('.search-input');
         const logo = document.querySelector(".logo")
+        const logoImg = document.querySelector(".logo img");
+        const searchIcon = document.querySelector('.search-button i');
+        
 
-         setTimeout(() => {
-             logo.classList.remove('skeleton')
-             searchButton.classList.remove('skeleton')
+        searchIcon.style.opacity = 0;
+        searchIcon.style.transition = 'opacity .9s';
+        logoImg.style.transition = 'opacity .9s';
+        logoImg.style.opacity = 0;
+
+        setTimeout(() => {
+            logo.classList.remove('skeleton')
+            searchButton.classList.remove('skeleton');
+            searchIcon.style.opacity = 1;
+            logoImg.style.opacity = 1;
         }, 2000);
 
-    
+
 
         // Load data from data.json
         async function loadData() {
@@ -618,11 +642,11 @@
                 cardsGrid.appendChild(skeletonCard);
             }
 
-           
+
 
         }
 
-       
+
 
         // Render error message
         function renderError() {
