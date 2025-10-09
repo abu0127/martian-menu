@@ -49,7 +49,7 @@
             box-shadow: 0 0 5px 1px rgba(0, 0, 0, 0.24);
             max-width: 540px;
             margin: 0 auto;
-            overflow: hidden ;
+            overflow: hidden;
         }
 
         header.hide {
@@ -82,7 +82,7 @@
             width: 150px;
             height: 25px;
             border-radius: 20px;
-            
+
         }
 
         .logo img {
@@ -137,7 +137,7 @@
         .carousel-item {
             height: 150px;
             flex: 0 0 75%;
-            border-radius: 20px;
+            border-radius: 25px;
             scroll-snap-align: center;
             transition: all 0.7s ease;
             display: flex;
@@ -176,12 +176,13 @@
             border-radius: 12px;
             margin-bottom: 10px;
             font-size: 27px;
-            text-shadow: 2px 2px 3px rgba(0, 0, 0, 0.54);
+            text-shadow: 2px 2px 3px rgba(0, 0, 0, 0.151);
         }
 
         /* Cards Grid Styles */
         .cards-grid {
             padding: 0 3%;
+            padding-top: 10px;
             padding-bottom: 30px;
             display: grid;
             place-items: center;
@@ -196,7 +197,7 @@
         .card {
             width: 100%;
             height: 250px;
-            border-radius: 20px;
+            border-radius: 25px;
             overflow: hidden;
             cursor: pointer;
             position: relative;
@@ -205,7 +206,7 @@
             transform: translateY(40px);
             filter: brightness(40%);
             animation: card-anim 0.6s ease forwards;
-            /* transform: scale(0.75); */
+            box-shadow: 3px 5px 15px rgba(104, 104, 104, 0.39);
         }
 
         @keyframes card-anim {
@@ -285,7 +286,7 @@
             background: rgba(255, 255, 255);
             left: 0;
             top: 0;
-            bottom:  0;
+            bottom: 0;
             width: 100%;
             max-width: 550px;
             margin: 0 auto;
@@ -329,7 +330,7 @@
 
         .modal-image {
             width: 97%;
-            height: 45vh;
+            height: 49vh;
             display: block;
             margin: 7px auto;
             margin-bottom: 20px;
@@ -510,7 +511,7 @@
         const logo = document.querySelector(".logo")
         const logoImg = document.querySelector(".logo img");
         const searchIcon = document.querySelector('.search-button i');
-        
+
 
         searchIcon.style.opacity = 0;
         searchIcon.style.transition = 'opacity .9s';
