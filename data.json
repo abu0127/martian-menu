@@ -233,4 +233,22 @@
       }
     ]
   }
+
+  ,
+
+  {
+    "category": "Pizzas",
+    "name": "San Sebastian",
+    "image": "images/sweets/sansebastian.PNG",
+    "prices": [
+       {
+        "size": "single",
+        "price": 35000
+      },
+      {
+        "size": "12 slice",
+        "price": 420000
+      }
+    ]
+  }
 ]

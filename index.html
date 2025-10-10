@@ -24,7 +24,7 @@
             width: 100%;
             max-width: 540px;
             margin: 0 auto;
-            padding-top: 70px;
+            padding-top: 13%;
             height: 100vh;
             overflow-y: auto;
             overflow-x: hidden;
@@ -179,6 +179,35 @@
             text-shadow: 2px 2px 3px rgba(0, 0, 0, 0.151);
         }
 
+        .dots {
+            position: sticky;
+            top: -6.5%;
+            backdrop-filter: blur(10px);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 30px;
+            column-gap: 10px;
+            z-index: 1000;
+        }
+
+        .dot {
+            height: 7px;
+            width: 7px;
+            border-radius: 50%;
+            background-color: #4b4b4b79;
+            transition: all .5s ease-out;
+        }
+
+        .dotActive {
+            height: 11px;
+            width: 11px;
+            background-color: #f70202;
+        }
+        .dotsActive{
+            background: #111;
+        }
+
         /* Cards Grid Styles */
         .cards-grid {
             padding: 0 3%;
@@ -191,7 +220,7 @@
             column-gap: 10px;
             row-gap: 20px;
             overflow: hidden;
-            margin-top: 20px;
+            margin-top: 10px;
         }
 
         .card {
@@ -293,6 +322,7 @@
             height: 100lvh;
             font-family: system-ui, sans-serif;
             animation: modalSlideUp 2s ease;
+            padding-top: 3%;
 
         }
 
@@ -312,7 +342,7 @@
 
         .modal-close {
             position: absolute;
-            top: 3%;
+            top: 5%;
             right: 6%;
             background: transparent;
             border: none;
@@ -465,6 +495,10 @@
             <!-- Carousel items will be added here by JavaScript -->
         </div>
 
+        <div class="dots">
+
+        </div>
+
         <div class="cards-grid" id="cardsGrid">
             <!-- Cards will be added here by JavaScript -->
         </div>
@@ -481,7 +515,7 @@
         const categoryImages = {
             Drinks: 'images/drinks/cola.PNG',
             Sweets: 'images/sweets.PNG',
-            Pizzas: 'images/pizzas/category_pizza.PNG',
+            Pizzas: 'images/category_pizza.PNG',
             burgers: 'images/burgers/classic.png',
         };
 
@@ -511,6 +545,20 @@
         const logo = document.querySelector(".logo")
         const logoImg = document.querySelector(".logo img");
         const searchIcon = document.querySelector('.search-button i');
+        const dots = document.querySelector('.dots');
+
+
+        container
+        .addEventListener("scroll", () => {
+          
+            const rect = dots.getBoundingClientRect();
+
+            if (rect.top <= 0) {
+                dots.classList.add("dotsActive");
+            } else {
+                dots.classList.remove("dotsActive");
+            }
+        });
 
 
         searchIcon.style.opacity = 0;
@@ -673,6 +721,11 @@
                 carouselItem.className = `carousel-item ${activeCategory === category ? 'active' : ''}`;
                 carouselItem.id = index;
 
+                // dots
+                const dot = document.createElement('div');
+                dot.className = 'dot'
+                dots.appendChild(dot)
+
                 const image = document.createElement('img');
                 // Use category image if available, otherwise use a placeholder
                 image.src = categoryImages[category] || '/images/placeholder.png';
@@ -687,7 +740,12 @@
                 carousel.appendChild(carouselItem);
 
                 // Add click event to change category
-                carouselItem.addEventListener('click', () => {
+                
+                    
+                
+
+                
+                dot.addEventListener('click', () => {
                     setActiveCategory(category);
                 });
             });
@@ -719,21 +777,25 @@
         function setActiveCategory(category) {
             activeCategory = category;
 
-            // Update carousel items
             const carouselItems = carousel.querySelectorAll('.carousel-item');
             const categories = getCategoriesFromData(apiData);
+            const dotItems = dots.querySelectorAll('.dot'); // <== dots dan oling, carousel emas
 
             carouselItems.forEach((item, index) => {
-                if (categories[index] === category) {
+                const isActive = categories[index] === category;
+
+                if (isActive) {
                     item.classList.add('active');
+                    dotItems[index].classList.add('dotActive'); // faqat shu activ bo‘lganiga class beramiz
                 } else {
                     item.classList.remove('active');
+                    dotItems[index].classList.remove('dotActive');
                 }
             });
 
-            // Update cards
             renderCards();
         }
+
 
         // Render cards
         function renderCards() {
