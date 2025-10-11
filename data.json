@@ -157,7 +157,7 @@
   {
     "category": "Sweets",
     "name": "Waffle",
-    "image": "images/sweets/vafli.PNG",
+    "image": "images/sweets/vafli.JPG",
     "prices": [
       {
         "size": "Waffle Choco",
@@ -210,12 +210,9 @@
     "prices": [
       {
         "size": "single",
-        "price": 10000
-      },
-      {
-        "size": "double",
-        "price": 18000
+        "price": 35000
       }
+     
     ]
   },
   {
@@ -231,6 +228,39 @@
         "size": "12 slice",
         "price": 420000
       }
+    ]
+  }
+
+  ,
+
+   {
+    "category": "Sweets",
+    "name": "Nutella",
+    "image": "images/sweets/nutela.JPG",
+    "prices": [
+       {
+        "size": "single",
+        "price": 35000
+      },
+      {
+        "size": "12 slice",
+        "price": 420000
+      }
+    ]
+  }
+
+  ,
+
+   {
+    "category": "Sweets",
+    "name": "Ekler",
+    "image": "images/sweets/ekler.JPG",
+    "prices": [
+       {
+        "size": "single",
+        "price": 5000
+      }
+     
     ]
   }
 
