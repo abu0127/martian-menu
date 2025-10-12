@@ -1,7 +1,17 @@
 [
   {
     "category": "Drinks",
+    "categoryTranslations": {
+      "uz": "Ichimliklar",
+      "ru": "Напитки",
+      "en": "Drinks"
+    },
     "name": "Strawberry Mojito",
+    "title": {
+      "uz": "Qulupnayli Mojito",
+      "ru": "Клубничный Мохито",
+      "en": "Strawberry Mojito"
+    },
     "image": "images/drinks/strawberry-maxitto.PNG",
     "prices": [
       {
@@ -16,7 +26,17 @@
   },
   {
     "category": "Drinks",
+    "categoryTranslations": {
+      "uz": "Ichimliklar",
+      "ru": "Напитки",
+      "en": "Drinks"
+    },
     "name": "Mango Mojito",
+    "title": {
+      "uz": "Mangoli Mojito",
+      "ru": "Манговый Мохито",
+      "en": "Mango Mojito"
+    },
     "image": "images/drinks/mango-maxitto.PNG",
     "prices": [
       {
@@ -31,7 +51,17 @@
   },
   {
     "category": "Drinks",
+    "categoryTranslations": {
+      "uz": "Ichimliklar",
+      "ru": "Напитки",
+      "en": "Drinks"
+    },
     "name": "Pepsi",
+    "title": {
+      "uz": "Pepsi",
+      "ru": "Пепси",
+      "en": "Pepsi"
+    },
     "image": "images/drinks/pepsi.PNG",
     "prices": [
       {
@@ -46,7 +76,17 @@
   },
   {
     "category": "Drinks",
+    "categoryTranslations": {
+      "uz": "Ichimliklar",
+      "ru": "Напитки",
+      "en": "Drinks"
+    },
     "name": "Fanta",
+    "title": {
+      "uz": "Fanta",
+      "ru": "Фанта",
+      "en": "Fanta"
+    },
     "image": "images/drinks/fanta.PNG",
     "prices": [
       {
@@ -61,7 +101,17 @@
   },
   {
     "category": "Drinks",
+    "categoryTranslations": {
+      "uz": "Ichimliklar",
+      "ru": "Напитки",
+      "en": "Drinks"
+    },
     "name": "Coca Cola",
+    "title": {
+      "uz": "Koka Kola",
+      "ru": "Кока-Кола",
+      "en": "Coca Cola"
+    },
     "image": "images/drinks/cola.PNG",
     "prices": [
       {
@@ -84,7 +134,17 @@
   },
   {
     "category": "Drinks",
+    "categoryTranslations": {
+      "uz": "Ichimliklar",
+      "ru": "Напитки",
+      "en": "Drinks"
+    },
     "name": "Banana milkshake",
+    "title": {
+      "uz": "Banan kokteyli",
+      "ru": "Банановый коктейль",
+      "en": "Banana milkshake"
+    },
     "image": "images/drinks/coctel-banan.PNG",
     "prices": [
       {
@@ -95,7 +155,17 @@
   },
   {
     "category": "Drinks",
+    "categoryTranslations": {
+      "uz": "Ichimliklar",
+      "ru": "Напитки",
+      "en": "Drinks"
+    },
     "name": "Moxitto",
+    "title": {
+      "uz": "Moxitto",
+      "ru": "Мохито",
+      "en": "Moxitto"
+    },
     "image": "images/drinks/moxitto.PNG",
     "prices": [
       {
@@ -118,7 +188,17 @@
   },
   {
     "category": "Drinks",
+    "categoryTranslations": {
+      "uz": "Ichimliklar",
+      "ru": "Напитки",
+      "en": "Drinks"
+    },
     "name": "Sprite",
+    "title": {
+      "uz": "Sprite",
+      "ru": "Спрайт",
+      "en": "Sprite"
+    },
     "image": "images/drinks/sprite.PNG",
     "prices": [
       {
@@ -141,7 +221,17 @@
   },
   {
     "category": "Sweets",
+    "categoryTranslations": {
+      "uz": "Shirinliklar",
+      "ru": "Десерты",
+      "en": "Sweets"
+    },
     "name": "Cheesecake Strawberry",
+    "title": {
+      "uz": "Qulupnayli Cheesecake",
+      "ru": "Клубничный Чизкейк",
+      "en": "Cheesecake Strawberry"
+    },
     "image": "images/sweets/cheesecake-strawberry.PNG",
     "prices": [
       {
@@ -156,7 +246,17 @@
   },
   {
     "category": "Sweets",
+    "categoryTranslations": {
+      "uz": "Shirinliklar",
+      "ru": "Десерты",
+      "en": "Sweets"
+    },
     "name": "Waffle",
+    "title": {
+      "uz": "Vafli",
+      "ru": "Вафля",
+      "en": "Waffle"
+    },
     "image": "images/sweets/vafli.JPG",
     "prices": [
       {
@@ -164,18 +264,28 @@
         "price": 50000
       },
       {
-        "size": "Waffle fruites",
+        "size": "Waffle Fruits",
         "price": 55000
       },
       {
-        "size": "Waffle iscrem",
+        "size": "Waffle Ice Cream",
         "price": 65000
       }
     ]
   },
   {
     "category": "Sweets",
+    "categoryTranslations": {
+      "uz": "Shirinliklar",
+      "ru": "Десерты",
+      "en": "Sweets"
+    },
     "name": "Dubai",
+    "title": {
+      "uz": "Dubay",
+      "ru": "Дубай",
+      "en": "Dubai"
+    },
     "image": "images/sweets/dubai.PNG",
     "prices": [
       {
@@ -190,7 +300,17 @@
   },
   {
     "category": "Sweets",
+    "categoryTranslations": {
+      "uz": "Shirinliklar",
+      "ru": "Десерты",
+      "en": "Sweets"
+    },
     "name": "Lotus",
+    "title": {
+      "uz": "Lotus",
+      "ru": "Лотус",
+      "en": "Lotus"
+    },
     "image": "images/sweets/lotus.PNG",
     "prices": [
       {
@@ -205,22 +325,41 @@
   },
   {
     "category": "Sweets",
+    "categoryTranslations": {
+      "uz": "Shirinliklar",
+      "ru": "Десерты",
+      "en": "Sweets"
+    },
     "name": "Pistachio",
+    "title": {
+      "uz": "Pista",
+      "ru": "Фисташка",
+      "en": "Pistachio"
+    },
     "image": "images/sweets/pistachio.PNG",
     "prices": [
       {
         "size": "single",
         "price": 35000
       }
-     
     ]
   },
   {
     "category": "Sweets",
+    "categoryTranslations": {
+      "uz": "Shirinliklar",
+      "ru": "Десерты",
+      "en": "Sweets"
+    },
     "name": "San Sebastian",
+    "title": {
+      "uz": "San Sebastian",
+      "ru": "Сан Себастьян",
+      "en": "San Sebastian"
+    },
     "image": "images/sweets/sansebastian.PNG",
     "prices": [
-       {
+      {
         "size": "single",
         "price": 35000
       },
@@ -229,16 +368,23 @@
         "price": 420000
       }
     ]
-  }
-
-  ,
-
-   {
+  },
+  {
     "category": "Sweets",
+    "categoryTranslations": {
+      "uz": "Shirinliklar",
+      "ru": "Десерты",
+      "en": "Sweets"
+    },
     "name": "Nutella",
+    "title": {
+      "uz": "Nutella",
+      "ru": "Нутелла",
+      "en": "Nutella"
+    },
     "image": "images/sweets/nutela.JPG",
     "prices": [
-       {
+      {
         "size": "single",
         "price": 35000
       },
@@ -247,31 +393,44 @@
         "price": 420000
       }
     ]
-  }
-
-  ,
-
-   {
+  },
+  {
     "category": "Sweets",
+    "categoryTranslations": {
+      "uz": "Shirinliklar",
+      "ru": "Десерты",
+      "en": "Sweets"
+    },
     "name": "Ekler",
+    "title": {
+      "uz": "Ekler",
+      "ru": "Эклер",
+      "en": "Ekler"
+    },
     "image": "images/sweets/ekler.JPG",
     "prices": [
-       {
+      {
         "size": "single",
         "price": 5000
       }
-     
     ]
-  }
-
-  ,
-
+  },
   {
     "category": "Pizzas",
+    "categoryTranslations": {
+      "uz": "Pitsalar",
+      "ru": "Пиццы",
+      "en": "Pizzas"
+    },
     "name": "San Sebastian",
+    "title": {
+      "uz": "San Sebastian",
+      "ru": "Сан Себастьян",
+      "en": "San Sebastian"
+    },
     "image": "images/sweets/sansebastian.PNG",
     "prices": [
-       {
+      {
         "size": "single",
         "price": 35000
       },

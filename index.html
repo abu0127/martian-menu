@@ -6,6 +6,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Martian Menu</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flag-icons@6.6.6/css/flag-icons.min.css">
+
     <style>
         * {
             margin: 0;
@@ -32,10 +34,10 @@
 
         /* Header Styles */
 
-        nav{
+        nav {
             position: fixed;
             width: 100%;
-            padding:  10px 0;
+            padding: 10px 0;
             display: flex;
             z-index: 100;
             background-color: #fefefe;
@@ -43,11 +45,12 @@
             transition: all .5s;
             opacity: 0;
         }
+
         nav::-webkit-scrollbar {
             display: none;
         }
 
-        nav .navItem{
+        nav .navItem {
             color: #fff;
             font-weight: bold;
             padding: 2px 10px;
@@ -57,10 +60,11 @@
             transition: all .9s;
             text-shadow: 1px 2px 2px rgba(0, 0, 0, 0.233);
         }
-        .navItem.navItemsActive{
-           transform: scale(1.1);
-           background-color: #c90000;
-        
+
+        .navItem.navItemsActive {
+            transform: scale(1.1);
+            background-color: #c90000;
+
         }
 
         header {
@@ -88,6 +92,26 @@
             transform: translateY(-100%);
         }
 
+        /* Til tanlash uchun style */
+        .language-select-container {
+            position: relative;
+        }
+
+        .language-select {
+            padding: 5px 10px;
+            border-radius: 15px;
+            border: none;
+            background: #f1f1f1;
+            cursor: pointer;
+            appearance: none;
+            -webkit-appearance: none;
+            -moz-appearance: none;
+            position: relative;
+            z-index: 2;
+            
+            color: transparent;
+            transition: all .9s;
+        }
 
 
         /* Search Bar Styles */
@@ -96,22 +120,29 @@
             justify-content: end;
             align-items: center;
             position: relative;
-            
+            padding: 0 3%;
+
         }
 
         .search-button {
-            background: transparent;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: #dfdfdf;
             border: none;
             color: rgba(0, 0, 0, 0.62);
             font-size: 20px;
             cursor: pointer;
             z-index: 2;
-            width: 25px;
-            height: 25px;
+            width: 30px;
+            height: 30px;
             border-radius: 50%;
         }
-        .search-button i{
-            color: #c90000;
+
+        .search-button i {
+            color: #070707a1;
+            font-size: 17px;
+            font-weight: 600;
         }
 
         .logo {
@@ -129,21 +160,20 @@
             width: 100px;
         }
 
-
         .search-input {
             position: absolute;
-            right: 0;
+            right: 3%;
             top: 50%;
             transform: translateY(-50%);
             padding: 5px 10px;
-            border-radius: 10px;
+            border-radius: 15px;
             border: none;
             outline: none;
             font-size: 16px;
-            width: 0;
             opacity: 0;
+            width: 0;
             transition: all 0.3s ease;
-            background: rgba(66, 66, 66, 0.14);
+            background: #dbdbdb;
             color: black;
         }
 
@@ -165,7 +195,7 @@
             padding: 0 3%;
             margin: 0 auto;
         }
-         
+
         .carousel::-webkit-scrollbar {
             display: none;
         }
@@ -215,7 +245,7 @@
         }
 
         .dots {
-           
+
             top: -6.5%;
             backdrop-filter: blur(10px);
             display: flex;
@@ -239,7 +269,8 @@
             width: 11px;
             background-color: #f70202;
         }
-        .dotsActive{
+
+        .dotsActive {
             background: #111;
             width: 100%;
             position: absolute;
@@ -277,8 +308,6 @@
         }
 
         @keyframes card-anim {
-
-
             to {
                 transform: translate(0);
                 opacity: 1;
@@ -361,10 +390,7 @@
             font-family: system-ui, sans-serif;
             animation: modalSlideUp 2s ease;
             padding-top: 3%;
-
         }
-
-
 
         @keyframes modalSlideUp {
             from {
@@ -450,17 +476,13 @@
             color: #111;
         }
 
-
         /* modal anim */
         @keyframes modalAnim {
-
             to {
                 transform: translateY(0);
                 opacity: 1;
             }
         }
-
-
 
         /* Skeleton Styles */
         .skeleton {
@@ -520,13 +542,14 @@
         <span class=" logo skeleton">
             <img src="images/logo.jpg" alt="">
         </span>
-        <div class="search-container">
-            <button class="search-button skeleton ">
-                <i class="fa-solid fa-magnifying-glass"></i>
-            </button>
-            <input type="text" class="search-input" placeholder="Qidirish...">
+        <!-- Til tanlash -->
+        <div class="language-select-container">
+            <select id="language-select" class="language-select skeleton">
+                <option value="uz">O'zbekcha</option>
+                <option value="en">English</option>
+                <option value="ru">Русский</option>
+            </select>
         </div>
-      
     </header>
 
     <nav></nav>
@@ -537,7 +560,14 @@
         </div>
 
         <div class="dots"></div>
-          
+
+        <div class="search-container">
+            <button class="search-button skeleton ">
+                <i class="fa-solid fa-magnifying-glass"></i>
+            </button>
+            <input type="text" class="search-input" placeholder="Qidirish...">
+        </div>
+
         <div class="cards-grid" id="cardsGrid">
             <!-- Cards will be added here by JavaScript -->
         </div>
@@ -550,19 +580,14 @@
     </div>
 
     <script>
-        // Category images
+        // Global o'zgaruvchilar
+        let currentLang = 'uz'; // Boshlang'ich til
         const categoryImages = {
             Drinks: 'images/drinks/cola.PNG',
             Sweets: 'images/sweets.PNG',
             Pizzas: 'images/category_pizza.PNG',
             burgers: 'images/burgers/classic.png',
         };
-
-        // Extract categories from data
-        function getCategoriesFromData(data) {
-            const categories = [...new Set(data.map(item => item.category))];
-            return categories;
-        }
 
         // App state
         let activeCategory = "Drinks";
@@ -586,34 +611,58 @@
         const searchIcon = document.querySelector('.search-button i');
         const dots = document.querySelector('.dots');
         const nav = document.querySelector('nav');
+        const languageSelect = document.getElementById('language-select');
 
+        // Til tanlash funksiyasi
+        languageSelect.addEventListener('change', (e) => {
+            currentLang = e.target.value;
+            updateLanguage();
+        });
 
-    // container
-    // .addEventListener("scroll", () => {
-        
-    //     const rect = dots.getBoundingClientRect();
+        // Tilni yangilash funksiyasi
+        function updateLanguage() {
+            // Qidiruv placeholder'ini yangilash
+            const searchPlaceholders = {
+                'en': 'Search...',
+                'uz': 'Qidirish...',
+                'ru': 'Поиск...'
+            };
+            searchInput.placeholder = searchPlaceholders[currentLang] || 'Search...';
 
-    //     if (rect.top <= 0) {
-    //         dots.classList.add("dotsActive");
-    //     } else {
-    //         dots.classList.remove("dotsActive");
-    //     }
-    // });
+            // Carousel va kartalarni qayta chizish
+            renderCarousel();
+            renderCards();
+        }
 
+        // Path fixer (GitHub Pages uchun)
+        function fixPath(path) {
+            if (path.startsWith("http")) return path;
+            const base = window.location.pathname.includes("martian-menu") ? "/martian-menu/" : "/";
+            return base + path;
+        }
 
-        searchIcon.style.opacity = 0;
-        searchIcon.style.transition = 'opacity .9s';
-        logoImg.style.transition = 'opacity .9s';
-        logoImg.style.opacity = 0;
+        // Extract categories from data
+        function getCategoriesFromData(data) {
+            const categories = [...new Set(data.map(item => item.category))];
+            return categories;
+        }
 
-        setTimeout(() => {
-            logo.classList.remove('skeleton')
-            searchButton.classList.remove('skeleton');
-            searchIcon.style.opacity = 1;
-            logoImg.style.opacity = 1;
-        }, 2000);
+        // Mahsulot nomini tanlangan tilga mos ravishda olish
+        function getLocalizedName(item) {
+            if (item.title && item.title[currentLang]) {
+                return item.title[currentLang];
+            }
+            return item.name;
+        }
 
-
+        // Kategoriya nomini tanlangan tilga mos ravishda olish
+        function getLocalizedCategoryName(category) {
+            const categoryItem = apiData.find(item => item.category === category);
+            if (categoryItem && categoryItem.categoryTranslations && categoryItem.categoryTranslations[currentLang]) {
+                return categoryItem.categoryTranslations[currentLang];
+            }
+            return category;
+        }
 
         // Load data from data.json
         async function loadData() {
@@ -654,41 +703,26 @@
             loadData();
         }
 
-
-        // Path fixer (GitHub Pages uchun)
-        function fixPath(path) {
-            // Agar to‘liq URL bo‘lsa (https:// bilan boshlansa) — o‘zini qaytaradi
-            if (path.startsWith("http")) return path;
-            // Aks holda /martian-menu/ bilan birga qaytaradi
-            const base = window.location.pathname.includes("martian-menu") ? "/martian-menu/" : "/";
-            return base + path;
-        }
-
-
         // Set up event listeners
         function setupEventListeners() {
-            // Search functionality
             searchButton.addEventListener('click', toggleSearch);
             searchInput.addEventListener('input', handleSearch);
-
-            // Scroll handling for header
             container.addEventListener('scroll', handleScroll);
-
-            // Modal close
             modalOverlay.addEventListener('click', closeModal);
+            modalContent.addEventListener('click', (e) => e.stopPropagation());
 
-            // Prevent modal content click from closing modal
-            modalContent.addEventListener('click', (e) => {
-                e.stopPropagation();
+            // inputni faqat tashqariga bosilganda yopish
+            container.addEventListener('click', (e) => {
+                if (!e.target.closest('.search-container')) {
+                    searchInput.classList.remove('open');
+                }
             });
         }
 
-        // Toggle search input
-        function toggleSearch() {
+        function toggleSearch(e) {
+            e.stopPropagation();
             searchInput.classList.toggle('open');
-            if (searchInput.classList.contains('open')) {
-                searchInput.focus();
-            }
+            if (searchInput.classList.contains('open')) searchInput.focus();
         }
 
         // Handle search input
@@ -713,7 +747,7 @@
         }
 
         container.addEventListener('click', () => searchInput.classList.remove('open'));
-        container.addEventListener('scroll', () => searchInput.classList.remove('open'))
+        container.addEventListener('scroll', () => searchInput.classList.remove('open'));
 
         // Render skeleton while loading
         function renderSkeleton() {
@@ -733,11 +767,22 @@
                 cardsGrid.appendChild(skeletonCard);
             }
 
-
-
+            searchIcon.style.opacity = 0;
+            searchIcon.style.transition = 'opacity .9s';
+            logoImg.style.transition = 'opacity .9s';
+            logoImg.style.opacity = 0;
+           
+            
+            setTimeout(() => {
+                logo.classList.remove('skeleton')
+                searchButton.classList.remove('skeleton');
+                languageSelect.classList.remove('skeleton');
+                searchIcon.style.opacity = 1;
+                logoImg.style.opacity = 1;
+                languageSelect.style.color = '#050505'
+            
+            }, 2000);
         }
-
-
 
         // Render error message
         function renderError() {
@@ -754,48 +799,49 @@
         function renderCarousel() {
             if (errorMessage) return;
 
-            carousel.innerHTML = '';
+            carousel.innerHTML = "";
+            nav.innerHTML = "";
+            dots.innerHTML = "";
 
             const categories = getCategoriesFromData(apiData);
 
             categories.forEach((category, index) => {
-                const carouselItem = document.createElement('div');
-                carouselItem.className = `carousel-item ${activeCategory === category ? 'active' : ''}`;
+                const translatedName = getLocalizedCategoryName(category);
+
+                const carouselItem = document.createElement("div");
+                carouselItem.className = `carousel-item ${activeCategory === category ? "active" : ""
+                    }`;
                 carouselItem.id = index;
 
-                // nav bar
-                const navItem = document.createElement('div');
-                navItem.className = 'navItem';
-                navItem.textContent = category
-                nav.appendChild(navItem)
-                
+                // navbar
+                const navItem = document.createElement("div");
+                navItem.className = "navItem";
+                navItem.textContent = translatedName;
+                nav.appendChild(navItem);
 
                 // dots
-                const dot = document.createElement('div');
-                dot.className = 'dot'
-                dots.appendChild(dot)
+                const dot = document.createElement("div");
+                dot.className = "dot";
+                dots.appendChild(dot);
 
-                const image = document.createElement('img');
-                // Use category image if available, otherwise use a placeholder
-                image.src = categoryImages[category] || '/images/placeholder.png';
+                // image
+                const image = document.createElement("img");
+                image.src = categoryImages[category] || "/images/placeholder.png";
                 image.alt = category;
 
-                const title = document.createElement('div');
-                title.className = 'carousel-title';
-                title.textContent = category;
+                // title
+                const title = document.createElement("div");
+                title.className = "carousel-title";
+                title.textContent = translatedName;
 
                 carouselItem.appendChild(image);
                 carouselItem.appendChild(title);
                 carousel.appendChild(carouselItem);
 
-                // Add click event to change category
-                
-                     navItem.addEventListener('click', () => {
+                // click event
+                navItem.addEventListener("click", () => {
                     setActiveCategory(category);
                 });
-                
-
-               
             });
 
             // Set up intersection observer for carousel
@@ -827,7 +873,7 @@
 
             const carouselItems = carousel.querySelectorAll('.carousel-item');
             const categories = getCategoriesFromData(apiData);
-            const dotItems = dots.querySelectorAll('.dot'); // <== dots dan oling, carousel emas
+            const dotItems = dots.querySelectorAll('.dot');
             const navItems = nav.querySelectorAll('.navItem');
 
             carouselItems.forEach((item, index) => {
@@ -835,7 +881,7 @@
 
                 if (isActive) {
                     item.classList.add('active');
-                    dotItems[index].classList.add('dotActive'); 
+                    dotItems[index].classList.add('dotActive');
                     navItems[index].classList.add('navItemsActive');
                 } else {
                     item.classList.remove('active');
@@ -844,14 +890,8 @@
                 }
             });
 
-
-
-
-
-
             renderCards();
         }
-
 
         // Render cards
         function renderCards() {
@@ -861,13 +901,23 @@
 
             const filteredItems = apiData.filter(item =>
                 item.category === activeCategory &&
-                item.name.toLowerCase().includes(searchQuery)
+                (item.name.toLowerCase().includes(searchQuery) ||
+                    (item.title && item.title[currentLang] &&
+                        item.title[currentLang].toLowerCase().includes(searchQuery)))
             );
 
             if (filteredItems.length === 0) {
                 const notFound = document.createElement('div');
                 notFound.className = 'not-found';
-                notFound.textContent = ' Topilmadi';
+
+                // Not found xabarini tilga mos ravishda chiqarish
+                const notFoundMessages = {
+                    'en': 'Not found',
+                    'uz': 'Topilmadi',
+                    'ru': 'Не найдено'
+                };
+                notFound.textContent = notFoundMessages[currentLang] || 'Not found';
+
                 cardsGrid.appendChild(notFound);
                 return;
             }
@@ -882,7 +932,7 @@
 
                 const title = document.createElement('div');
                 title.className = 'card-title';
-                title.textContent = item.name;
+                title.textContent = getLocalizedName(item);
 
                 card.appendChild(image);
                 card.appendChild(title);
@@ -904,12 +954,12 @@
                     <i class="fas fa-times"></i>
                 </button>
                 <img src="${fixPath(item.image)}" alt="${item.name}" class="modal-image">
-                <h2 class="modal-name">${item.name}</h2>
+                <h2 class="modal-name">${getLocalizedName(item)}</h2>
                 <table class="modal-table">
                     <thead>
                         <tr>
-                            <th>Size</th>
-                            <th>Price</th>
+                            <th>${currentLang === 'ru' ? 'Размер' : currentLang === 'uz' ? 'Hajm' : 'Size'}</th>
+                            <th>${currentLang === 'ru' ? 'Цена' : currentLang === 'uz' ? 'Narx' : 'Price'}</th>
                         </tr>
                     </thead>
                     <tbody>
