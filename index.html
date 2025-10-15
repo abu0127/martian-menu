@@ -7,7 +7,9 @@
     <title>Martian Menu</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flag-icons@6.6.6/css/flag-icons.min.css">
-
+    <link rel="manifest" href="/manifest.json">
+    <meta name="theme-color" content="#0ea5a4">
+    <!-- <link rel="icon" href="/icons/icon-192.png"> -->
     <style>
         * {
             margin: 0;
@@ -40,10 +42,11 @@
             padding: 10px 0;
             display: flex;
             z-index: 100;
-            background-color: #fefefe;
             box-shadow: 0 0 5px 1px rgba(0, 0, 0, 0.24);
             transition: all .5s;
             opacity: 0;
+            background: #fefefed0;
+            backdrop-filter: blur(16px);
         }
 
         nav::-webkit-scrollbar {
@@ -52,7 +55,7 @@
 
         nav .navItem {
             color: #fff;
-            font-weight: bold;
+            font-size: 20px;
             padding: 2px 10px;
             background: #969696;
             margin-left: 3%;
@@ -72,7 +75,8 @@
             top: 0;
             left: 0;
             right: 0;
-            background: #fefefe;
+            background: #fefefed0;
+            backdrop-filter: blur(16px);
             color: #333;
             padding: 10px 15px;
             text-align: center;
@@ -95,22 +99,31 @@
         /* Til tanlash uchun style */
         .language-select-container {
             position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: #f1f1f1;
+            border-radius: 15px;
+            padding: 0 10px;
+
         }
 
         .language-select {
-            padding: 5px 10px;
-            border-radius: 15px;
+            padding: 5px 5px;
+            outline: none;
+            font-weight: 800;
             border: none;
-            background: #f1f1f1;
+            background: transparent;
             cursor: pointer;
             appearance: none;
             -webkit-appearance: none;
             -moz-appearance: none;
             position: relative;
             z-index: 2;
-            
             color: transparent;
             transition: all .9s;
+
+
         }
 
 
@@ -121,6 +134,8 @@
             align-items: center;
             position: relative;
             padding: 0 3%;
+            transition: all .5s;
+
 
         }
 
@@ -134,14 +149,14 @@
             font-size: 20px;
             cursor: pointer;
             z-index: 2;
-            width: 30px;
-            height: 30px;
+            width: 40px;
+            height: 40px;
             border-radius: 50%;
         }
 
         .search-button i {
             color: #070707a1;
-            font-size: 17px;
+            font-size: 22px;
             font-weight: 600;
         }
 
@@ -166,7 +181,7 @@
             top: 50%;
             transform: translateY(-50%);
             padding: 5px 10px;
-            border-radius: 15px;
+            border-radius: 25px;
             border: none;
             outline: none;
             font-size: 16px;
@@ -178,8 +193,9 @@
         }
 
         .search-input.open {
-            width: 180px;
+            width: 46%;
             opacity: 1;
+            height: 40px;
         }
 
         /* Carousel Styles */
@@ -202,10 +218,10 @@
 
         .carousel-item {
             height: 150px;
-            flex: 0 0 85%;
+            flex: 0 0 80%;
             border-radius: 25px;
             scroll-snap-align: center;
-            transition: all 0.6s;
+            transition: all 0.3s;
             display: flex;
             position: relative;
             overflow: hidden;
@@ -214,7 +230,7 @@
         }
 
         .carousel-item.active {
-            height: 180px;
+
             font-weight: bold;
         }
 
@@ -486,9 +502,10 @@
 
         /* Skeleton Styles */
         .skeleton {
-            background: linear-gradient(90deg, #f0f0f0e3 25%, #e0e0e0 50%, #f0f0f0 75%);
+            background: linear-gradient(90deg, #e7e7e7e3 25%, #b9b9b9e5 50%, #eeeeee 75%);
             background-size: 200% 100%;
             animation: loading 1.5s infinite;
+            border: 1px solid #a7a7a7;
 
         }
 
@@ -540,14 +557,16 @@
 <body>
     <header id="header">
         <span class=" logo skeleton">
-            <img src="images/logo.jpg" alt="">
+            <img src="images/logo.png" alt="">
         </span>
         <!-- Til tanlash -->
-        <div class="language-select-container">
-            <select id="language-select" class="language-select skeleton">
-                <option value="uz">O'zbekcha</option>
-                <option value="en">English</option>
-                <option value="ru">Русский</option>
+        <div class="language-select-container skeleton">
+            <i style="font-size: 24px;" class="fa-solid fa-language"></i>
+            <select id="language-select" class="language-select ">
+
+                <option value="uz">UZ</option>
+                <option value="en">EN</option>
+                <option value="ru">РУ</option>
             </select>
         </div>
     </header>
@@ -580,6 +599,18 @@
     </div>
 
     <script>
+
+        if ('serviceWorker' in navigator) {
+            window.addEventListener('load', () => {
+                navigator.serviceWorker.register('/service-worker.js')
+                    .then(reg => {
+                        console.log('ServiceWorker registered:', reg.scope);
+                    })
+                    .catch(err => console.log('ServiceWorker registration failed:', err));
+            });
+        }
+
+
         // Global o'zgaruvchilar
         let currentLang = 'uz'; // Boshlang'ich til
         const categoryImages = {
@@ -612,6 +643,9 @@
         const dots = document.querySelector('.dots');
         const nav = document.querySelector('nav');
         const languageSelect = document.getElementById('language-select');
+        const faLanguage = document.querySelector('.fa-language');
+        const languageSelectContainer = document.querySelector('.language-select-container')
+
 
         // Til tanlash funksiyasi
         languageSelect.addEventListener('change', (e) => {
@@ -771,8 +805,9 @@
             searchIcon.style.transition = 'opacity .9s';
             logoImg.style.transition = 'opacity .9s';
             logoImg.style.opacity = 0;
-           
-            
+            faLanguage.style.opacity = 0;
+
+
             setTimeout(() => {
                 logo.classList.remove('skeleton')
                 searchButton.classList.remove('skeleton');
@@ -780,7 +815,9 @@
                 searchIcon.style.opacity = 1;
                 logoImg.style.opacity = 1;
                 languageSelect.style.color = '#050505'
-            
+                languageSelectContainer.classList.remove('skeleton');
+                faLanguage.style.opacity = 1;
+
             }, 2000);
         }
 
@@ -788,7 +825,6 @@
         function renderError() {
             carousel.innerHTML = '';
             cardsGrid.innerHTML = '';
-
             const errorElement = document.createElement('div');
             errorElement.className = 'error';
             errorElement.textContent = errorMessage;
@@ -860,7 +896,7 @@
                 });
             }, {
                 root: carousel,
-                threshold: 1.
+                threshold: 0.6
             });
 
             const items = carousel.querySelectorAll('.carousel-item');
