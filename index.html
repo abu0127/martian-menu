@@ -7,8 +7,7 @@
     <title>Martian Menu</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flag-icons@6.6.6/css/flag-icons.min.css">
-    <link rel="manifest" href="/manifest.json">
-    <meta name="theme-color" content="#0ea5a4">
+    <link rel="icon" type="image/png" sizes="192x192" href="icons/icon-192.png">
     <!-- <link rel="icon" href="/icons/icon-192.png"> -->
     <style>
         * {
@@ -217,7 +216,7 @@
         }
 
         .carousel-item {
-            height: 150px;
+            height: 190px;
             flex: 0 0 80%;
             border-radius: 25px;
             scroll-snap-align: center;
@@ -230,7 +229,7 @@
         }
 
         .carousel-item.active {
-
+    
             font-weight: bold;
         }
 
@@ -600,16 +599,7 @@
 
     <script>
 
-        if ('serviceWorker' in navigator) {
-            window.addEventListener('load', () => {
-                navigator.serviceWorker.register('/service-worker.js')
-                    .then(reg => {
-                        console.log('ServiceWorker registered:', reg.scope);
-                    })
-                    .catch(err => console.log('ServiceWorker registration failed:', err));
-            });
-        }
-
+     
 
         // Global o'zgaruvchilar
         let currentLang = 'uz'; // Boshlang'ich til
