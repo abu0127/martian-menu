@@ -38,7 +38,7 @@
         nav {
             position: fixed;
             width: 100%;
-            padding: 10px 0;
+            padding: 10px 2%;
             display: flex;
             z-index: 100;
             box-shadow: 0 0 5px 1px rgba(0, 0, 0, 0.24);
@@ -53,19 +53,23 @@
         }
 
         nav .navItem {
-            color: #fff;
+            color: #07070777;
+            border: 1px solid #07070718 ;
             font-size: 20px;
             padding: 2px 10px;
-            background: #969696;
+            background: #00000025;
             margin-left: 3%;
             border-radius: 15px;
-            transition: all .9s;
-            text-shadow: 1px 2px 2px rgba(0, 0, 0, 0.233);
+            transition: all .5s;
+            font-weight: 900;
+            
         }
 
         .navItem.navItemsActive {
             transform: scale(1.1);
-            background-color: #c90000;
+            background-color: #a8a8a84b;
+            color: #ffffffc2;
+            
 
         }
 
@@ -77,7 +81,7 @@
             background: #fefefed0;
             backdrop-filter: blur(16px);
             color: #333;
-            padding: 10px 15px;
+            padding: 5px 15px;
             text-align: center;
             font-size: 20px;
             transition: transform 0.3s ease-in-out;
@@ -103,7 +107,7 @@
             justify-content: center;
             background: #f1f1f1;
             border-radius: 15px;
-            padding: 0 10px;
+            padding: 4px 10px;
 
         }
 
@@ -216,21 +220,15 @@
         }
 
         .carousel-item {
-            height: 190px;
+            height: 160px;
             flex: 0 0 80%;
             border-radius: 25px;
             scroll-snap-align: center;
-            transition: all 0.3s;
             display: flex;
             position: relative;
             overflow: hidden;
             font-weight: normal;
             box-shadow: 3px 5px 15px 2px rgba(38, 38, 38, 0.39);
-        }
-
-        .carousel-item.active {
-    
-            font-weight: bold;
         }
 
         .carousel-item img {
@@ -240,7 +238,7 @@
             width: 100%;
             height: 100%;
             object-fit: cover;
-            filter: brightness(60%);
+            filter: brightness(50%);
             transition: filter 0.4s;
         }
 
@@ -559,8 +557,9 @@
             <img src="images/logo.png" alt="">
         </span>
         <!-- Til tanlash -->
+        
         <div class="language-select-container skeleton">
-            <i style="font-size: 24px;" class="fa-solid fa-language"></i>
+            <i style="font-size: 20px; color: #070707a1; " class="fa-solid fa-globe"></i>
             <select id="language-select" class="language-select ">
 
                 <option value="uz">UZ</option>
@@ -633,7 +632,7 @@
         const dots = document.querySelector('.dots');
         const nav = document.querySelector('nav');
         const languageSelect = document.getElementById('language-select');
-        const faLanguage = document.querySelector('.fa-language');
+        const faLanguage = document.querySelector('.fa-solid');
         const languageSelectContainer = document.querySelector('.language-select-container')
 
 
@@ -804,7 +803,7 @@
                 languageSelect.classList.remove('skeleton');
                 searchIcon.style.opacity = 1;
                 logoImg.style.opacity = 1;
-                languageSelect.style.color = '#050505'
+                languageSelect.style.color = '#070707a1'
                 languageSelectContainer.classList.remove('skeleton');
                 faLanguage.style.opacity = 1;
 
@@ -886,7 +885,7 @@
                 });
             }, {
                 root: carousel,
-                threshold: 0.6
+                threshold: 1.
             });
 
             const items = carousel.querySelectorAll('.carousel-item');
