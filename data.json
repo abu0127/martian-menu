@@ -18,6 +18,7 @@
         "size": "0.7L",
         "price": 27000
       },
+     
       {
         "size": "1L",
         "price": 37000
@@ -43,6 +44,7 @@
         "size": "0.7L",
         "price": 27000
       },
+     
       {
         "size": "1L",
         "price": 37000
@@ -65,12 +67,24 @@
     "image": "images/drinks/pepsi.PNG",
     "prices": [
       {
+        "size": "0.33L",
+        "price": 6000
+      },
+      {
         "size": "0.5L",
-        "price": 7000
+        "price": 8000
       },
       {
         "size": "1L",
         "price": 14000
+      },
+      {
+        "size": "1.5L",
+        "price": 18000
+      },
+      {
+        "size": "2L",
+        "price": 21000
       }
     ]
   },
@@ -90,12 +104,24 @@
     "image": "images/drinks/fanta.PNG",
     "prices": [
       {
+        "size": "0.33L",
+        "price": 6500
+      },
+      {
         "size": "0.5L",
-        "price": 8000
+        "price": 8500
       },
       {
         "size": "1L",
-        "price": 15000
+        "price": 14500
+      },
+      {
+        "size": "1.5L",
+        "price": 18500
+      },
+      {
+        "size": "2L",
+        "price": 21500
       }
     ]
   },
@@ -115,8 +141,12 @@
     "image": "images/drinks/cola.PNG",
     "prices": [
       {
+        "size": "0.33L",
+        "price": 6500
+      },
+      {
         "size": "0.5L",
-        "price": 7500
+        "price": 8500
       },
       {
         "size": "1L",
@@ -124,11 +154,11 @@
       },
       {
         "size": "1.5L",
-        "price": 17500
+        "price": 18000
       },
       {
         "size": "2L",
-        "price": 20000
+        "price": 21000
       }
     ]
   },
@@ -147,10 +177,12 @@
     },
     "image": "images/drinks/coctel-banan.PNG",
     "prices": [
+     
       {
         "size": "0.5L",
         "price": 25000
       }
+    
     ]
   },
   {
@@ -174,16 +206,9 @@
       },
       {
         "size": "1L",
-        "price": 14500
-      },
-      {
-        "size": "1.5L",
-        "price": 17500
-      },
-      {
-        "size": "2L",
-        "price": 20000
+        "price": 14000
       }
+      
     ]
   },
   {
@@ -202,8 +227,12 @@
     "image": "images/drinks/sprite.PNG",
     "prices": [
       {
+        "size": "0.33L",
+        "price": 6500
+      },
+      {
         "size": "0.5L",
-        "price": 7500
+        "price": 8500
       },
       {
         "size": "1L",
@@ -211,11 +240,11 @@
       },
       {
         "size": "1.5L",
-        "price": 17500
+        "price": 18000
       },
       {
         "size": "2L",
-        "price": 20000
+        "price": 21000
       }
     ]
   },
