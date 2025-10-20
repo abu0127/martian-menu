@@ -44,7 +44,7 @@
             box-shadow: 0 0 5px 1px rgba(0, 0, 0, 0.24);
             transition: all .5s;
             opacity: 0;
-            background: #fefefed0;
+            background: #fefefef8;
             backdrop-filter: blur(16px);
         }
 
@@ -57,7 +57,7 @@
             border: 1px solid #07070718 ;
             font-size: 20px;
             padding: 2px 10px;
-            background: #00000025;
+            background: #f1f1f1;
             margin-left: 3%;
             border-radius: 15px;
             transition: all .5s;
@@ -67,8 +67,8 @@
 
         .navItem.navItemsActive {
             transform: scale(1.1);
-            background-color: #a8a8a84b;
-            color: #ffffffc2;
+            background-color: #a8a8a8b0;
+            color: #ffffff;
             
 
         }
@@ -885,7 +885,7 @@
                 });
             }, {
                 root: carousel,
-                threshold: 1.
+                threshold: 0.8
             });
 
             const items = carousel.querySelectorAll('.carousel-item');
